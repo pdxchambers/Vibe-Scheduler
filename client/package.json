@@ -1,0 +1,22 @@
+{
+  "name": "calendar-app-client",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vite + TypeScript + LESS frontend for the calendar app",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "less": "^4.2.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

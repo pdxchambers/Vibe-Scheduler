@@ -1,0 +1,83 @@
+@import './_variables.less';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: @font-family;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color @transition-fast, color @transition-fast;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 @spacing-3;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 @spacing-3;
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: @spacing-1;
+  color: var(--color-text-muted);
+}
+
+.route-outlet {
+  flex: 1;
+  width: 100%;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: @spacing-5 @spacing-4 @spacing-6;
+}
+
+.not-found,
+.route-loading {
+  text-align: center;
+  padding: @spacing-6;
+  color: var(--color-text-muted);
+}

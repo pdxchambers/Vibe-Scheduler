@@ -1,0 +1,52 @@
+// Static LESS variables (compile-time) for values that don't change with theme
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+@radius-sm: 6px;
+@radius-md: 10px;
+@radius-lg: 16px;
+@spacing-1: 4px;
+@spacing-2: 8px;
+@spacing-3: 12px;
+@spacing-4: 16px;
+@spacing-5: 24px;
+@spacing-6: 32px;
+@transition-fast: 150ms ease;
+
+// Runtime theme values are exposed as CSS custom properties so JS can flip
+// themes instantly by toggling the `data-theme` attribute on <html>,
+// without recompiling any CSS.
+:root,
+[data-theme='light'] {
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f1f6;
+  --color-border: #e1e3ea;
+  --color-text: #1a1d29;
+  --color-text-muted: #6b7080;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-contrast: #ffffff;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #22c55e;
+  --color-today-bg: #eaf2ff;
+  --color-shadow: rgba(20, 24, 40, 0.12);
+  --color-overlay: rgba(15, 18, 30, 0.45);
+}
+
+[data-theme='dark'] {
+  --color-bg: #14161f;
+  --color-surface: #1c1f2b;
+  --color-surface-alt: #232733;
+  --color-border: #2e323f;
+  --color-text: #eef0f6;
+  --color-text-muted: #9195a5;
+  --color-primary: #5b9bff;
+  --color-primary-hover: #7bafff;
+  --color-primary-contrast: #0a0d16;
+  --color-danger: #f87171;
+  --color-danger-hover: #fca5a5;
+  --color-success: #4ade80;
+  --color-today-bg: #202a42;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+}

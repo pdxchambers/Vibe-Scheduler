@@ -1,0 +1,295 @@
+@import './_variables.less';
+
+// --- Buttons -------------------------------------------------------------
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: @spacing-2;
+  padding: 9px 16px;
+  border-radius: @radius-sm;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color @transition-fast, border-color @transition-fast, opacity @transition-fast;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary-hover);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    border-color: var(--color-border);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-border);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-surface-alt);
+    }
+  }
+
+  &--danger {
+    background-color: transparent;
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-danger);
+      color: var(--color-primary-contrast);
+    }
+  }
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: var(--color-surface-alt);
+  }
+}
+
+// --- Forms -----------------------------------------------------------------
+.form-field {
+  margin-bottom: @spacing-4;
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='datetime-local'],
+  textarea,
+  select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: @radius-sm;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 1px;
+    }
+  }
+
+  input[type='color'] {
+    width: 56px;
+    height: 36px;
+    padding: 2px;
+    border-radius: @radius-sm;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    cursor: pointer;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  &--inline {
+    display: flex;
+    align-items: center;
+    gap: @spacing-2;
+
+    label {
+      margin: 0;
+    }
+
+    input[type='checkbox'] {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: @spacing-3;
+}
+
+.form-hint {
+  margin: @spacing-1 0 0;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.form-error {
+  background-color: color-mix(in srgb, var(--color-danger) 12%, transparent);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  border-radius: @radius-sm;
+  padding: @spacing-2 @spacing-3;
+  font-size: 13px;
+  margin-bottom: @spacing-3;
+}
+
+// --- Auth pages ------------------------------------------------------------
+.auth-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: @spacing-5;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: @radius-lg;
+  padding: @spacing-6;
+  box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+.auth-subtitle {
+  margin-top: -@spacing-2;
+  margin-bottom: @spacing-5;
+}
+
+.auth-form .button {
+  width: 100%;
+  margin-top: @spacing-2;
+}
+
+.auth-switch {
+  margin: @spacing-4 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+// --- Settings / preferences --------------------------------------------
+.settings-section {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: @radius-lg;
+  padding: @spacing-5;
+  margin-bottom: @spacing-4;
+  max-width: 480px;
+
+  &__meta {
+    margin-top: -@spacing-2;
+    font-size: 13px;
+  }
+}
+
+.settings-form {
+  display: flex;
+  gap: @spacing-3;
+  align-items: flex-end;
+
+  .form-field {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+// --- Toasts ------------------------------------------------------------
+.toast-container {
+  position: fixed;
+  bottom: @spacing-5;
+  right: @spacing-5;
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-2;
+  z-index: 1000;
+}
+
+.toast {
+  padding: @spacing-3 @spacing-4;
+  border-radius: @radius-sm;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  box-shadow: 0 6px 20px var(--color-shadow);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity @transition-fast, transform @transition-fast;
+  max-width: 320px;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--success {
+    border-color: var(--color-success);
+  }
+
+  &--error {
+    border-color: var(--color-danger);
+  }
+}
+
+// --- Modal ------------------------------------------------------------
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: @spacing-4;
+  z-index: 900;
+}
+
+.modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border-radius: @radius-lg;
+  box-shadow: 0 20px 50px var(--color-shadow);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @spacing-4 @spacing-5 0;
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.event-form {
+  padding: @spacing-4 @spacing-5 @spacing-5;
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: @spacing-2;
+    margin-top: @spacing-2;
+  }
+}
